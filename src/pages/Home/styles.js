@@ -1,12 +1,22 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
-  gap: 20px;
+export const Main = styled.div`
+  display: grid;
+  grid-column: 15% 80%;
+  gap: 5rem;
+
+  @media screen and (max-width: 1024px) {
+    gap: 2rem;
+  }
+  @media screen and (max-width: 600px) {
+    grid-template-columns: 5% 95%;
+  }
 `;
 
-export const Title = styled.h2``;
+export const Sidebar = styled.div`
+  z-index: 1;
+`;
+
+export const Nav = styled.div`
+  margin: 1.5rem;
+  `;
