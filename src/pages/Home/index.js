@@ -1,30 +1,45 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
-import Button from "../../components/Button";
+import './Home.css'
+import { Routes, Route } from "react-router-dom"
 import Sidebar from "../../components/Sidebar";
 import Navbar from "../../components/Navbar";
-import useAuth from "../../hooks/useAuth";
-import * as C from "./styles";
+import Employees from "../../components/Employees";
+import Customers from "../../components/Customers";
+import Orders from "../../components/Orders";
+import Kanban from "../../components/Kanban";
+import Charts from "../../components/Charts";
+import Home from "../../components/Home";
 
-const Home = () => {
-  const { signout } = useAuth();
-  const navigate = useNavigate();
-
+function HomeApp() {
   return (
-    <C.Main>
-      <C.Sidebar>
-          <Sidebar />
-      </C.Sidebar>
-      <C.Nav>
-          <div className="navbar">
-            <Navbar />
-          </div>
-      </C.Nav>
-      <Button Text="Sair" onClick={() => [signout(), navigate("/")]}>
-        Sair
-      </Button>
-    </C.Main>
-  );
-};
+    <div className="main">
 
-export default Home;
+      <div className="sidebar">
+        <Sidebar />
+      </div>
+
+      <div className="nav">
+        <div className="navbar">
+          <Navbar />
+        </div>
+
+        <div>
+
+          <Routes>
+
+            <Route path='/' exact element={(<Home />)} />
+            <Route path='/employees' element={(<Employees />)} />
+            <Route path='/customers'  element={(<Customers />)} />
+            <Route path='/kanban'  element={(<Kanban />)} />
+            <Route path='/orders'  element={(<Orders />)} />
+            <Route path='/charts'  element={(<Charts />)} />
+
+          </Routes>
+
+        </div>
+      </div>
+
+    </div>
+  );
+}
+
+export default HomeApp
