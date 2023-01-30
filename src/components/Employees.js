@@ -2,17 +2,19 @@ import React from "react";
 
 import Custo from "../custoJson.json"
 
-
+import VerticalBarChart from "../components/Charts/VercalBarChart"
 console.log(Custo)
 
-as
 
 
 
 
 const Employees = () => {
     return (
-        <div>Orders</div>
+        <div>
+            {/* <div>Orders</div> */}
+            <VerticalBarChart />
+        </div>
     )
 }
 

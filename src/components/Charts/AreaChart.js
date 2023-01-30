@@ -48,13 +48,37 @@ export const data = {
         {
             fill: true,
             label: 'Customers',
-            data: MyData.map(data => {return Number(data.pago)}) ,
+            data: MyData.map(data => {return Number(data.pago)}),
             // data: [1,2,3],
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
         },
     ],
 };
+
+export const data1 = {
+    labels,
+    datasets: [
+        {
+            fill: true,
+            label: 'Customers',
+            data: MyData.map(data => {return Number(data.pago)}),
+            // data: [1,2,3],
+            borderColor: 'rgb(53, 162, 235)',
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+        {
+            fill: true,
+            label: 'Customers2',
+            data1: MyData.map(data => {return Number(data.recebido)}),
+            // data: [1,2,3],
+            borderColor: 'rgb(53, 162, 235)',
+            backgroundColor: 'rgba(53, 162, 235, 0.5)',
+        },
+
+    ],
+};
+
 
 const AreaChart = () => {
     // const dataTest = JSON.parse(MyData)
@@ -63,6 +87,8 @@ const AreaChart = () => {
         <div className='chart'>
             <h2>Area Chart</h2>
             <Line options={options} data={data} />
+            <Line options={options} data={data1} />
+
         </div>
     )
 }

@@ -1,4 +1,8 @@
 import React from 'react';
+import MyData from "../../fluxoCaixaJson.json"
+
+
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -34,15 +38,15 @@ export const data = {
   labels ,
   datasets: [
       {
-          label: 'Sales',
-          data: ['60',"72","55","85","75"],
+          label: 'pago',
+          data: MyData.map(data => {return Number(data.pago)}),
           borderColor: 'rgb(255, 99, 132)',
           backgroundColor: 'rgba(255, 99, 132,0.5)',
           borderWidth: 5
       },
       {
-          label: 'Revenue',
-          data: [19,32,55,45,85],
+          label: 'recebido',
+          data: MyData.map(data => {return Number(data.recebido)}),
           borderColor: 'rgb(53, 162, 235)',
           backgroundColor: 'rgba(53, 162, 235, 0.5)',
           borderWidth: 5

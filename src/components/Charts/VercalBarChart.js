@@ -1,4 +1,7 @@
 import React from 'react';
+import custoJson from '../../custoJson.json'
+
+
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -19,6 +22,9 @@ ChartJS.register(
   Legend
 );
 
+console.log(custoJson)
+
+
 export const options = {
   responsive: true,
   plugins: {
@@ -34,7 +40,7 @@ export const data = {
   datasets: [
     {
       label: "Sales",
-      data:[10,22, 35 ,58, 40,60, 45],
+      data: custoJson.map(data => {return Number()}),
       backgroundColor: "#04e474",
       borderRadius: 25,
     },
