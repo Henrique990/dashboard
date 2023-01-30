@@ -17,7 +17,7 @@ const Sidebar = () => {
         {
           menuItems.map((item) => (
 
-            <Link to={`/${item.name}`} key={item.id} style={{textDecoration: 'none'}}>
+            <Link to={`/home/${item.name}`} key={item.id} style={{textDecoration: 'none'}}>
               <div className="item" >
                 {item.icon}
                 <h3>{item.title}</h3>

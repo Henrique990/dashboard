@@ -1,9 +1,10 @@
 import React from 'react';
-import "./Navbar.css"
+import "../components/Charts.css"
 import { MdNotificationsNone } from 'react-icons/md';
 import { FiSearch } from 'react-icons/fi';
 import { BiMessageRoundedDetail } from 'react-icons/bi';
-import avatar from "../data/avatar.png";
+import "./Navbar.css"
+// import avatar from "../data/avatar.png";
 
 
 
@@ -26,7 +27,7 @@ const Navbar = () => {
 
       <div className="user">
         <span>Elite Developrs</span>
-       <img src={avatar} alt="avatar" />
+       {/* <img src={avatar} alt="avatar" /> */}
       </div>
     </div>
   )

@@ -1,13 +1,13 @@
 import React from 'react';
-import "./Home.css";
+import "./HomeApp.css";
 import { GiProgression, GiProfit } from "react-icons/gi";
 import { BsFillCartCheckFill} from "react-icons/bs"
 import { HiUsers } from "react-icons/hi";
 import { CircularProgressbar } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import DoughnutChart from "../Charts/DoughnutChart";
+import DoughnutChart from "../components/Charts/DoughnutChart"
 
-const Home = () => {
+const HomeApp = () => {
   return (
     <div>
       <div className="home-container">
@@ -90,4 +90,4 @@ const Home = () => {
   )
 }
 
-export default Home 
+export default HomeApp

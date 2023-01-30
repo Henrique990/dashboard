@@ -1,9 +1,9 @@
 import React from 'react'
-import AreaChart from '../Charts/AreaChart'
-import HorizontalBarChart from '../Charts/HorizontalBarChart'
-import LineChart from '../Charts/LineChart'
-import VerticalBarChart from '../Charts/VerticalBarChart'
-import "./Charts.css";
+import AreaChart from '../components/Charts/AreaChart'
+import HorizontalBarChart from '../components/Charts/HorizontalBarChart'
+import LineChart from '../components/Charts/LineChart'
+import VerticalBarChart from '../components/Charts/VercalBarChart'
+import "../components/Charts.css";
 
 const Charts = () => {
   return (

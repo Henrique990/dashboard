@@ -7,9 +7,9 @@ import Customers from "../../components/Customers";
 import Orders from "../../components/Orders";
 import Kanban from "../../components/Kanban";
 import Charts from "../../components/Charts";
-import Home from "../../components/Home";
+import HomeApp from "../../components/HomeApp";
 
-function HomeApp() {
+function Home() {
   return (
     <div className="main">
 
@@ -26,12 +26,12 @@ function HomeApp() {
 
           <Routes>
 
-            <Route path='/' exact element={(<Home />)} />
-            <Route path='/employees' element={(<Employees />)} />
-            <Route path='/customers'  element={(<Customers />)} />
-            <Route path='/kanban'  element={(<Kanban />)} />
-            <Route path='/orders'  element={(<Orders />)} />
-            <Route path='/charts'  element={(<Charts />)} />
+            <Route path='/' exact element={(<HomeApp />)} />
+            <Route path='/home/employees' element={(<Employees />)} />
+            <Route path='/home/customers'  element={(<Customers />)} />
+            <Route path='/home/kanban'  element={(<Kanban />)} />
+            <Route path='/home/orders'  element={(<Orders />)} />
+            <Route path='/home/charts'  element={(<Charts />)} />
 
           </Routes>
 
@@ -42,4 +42,4 @@ function HomeApp() {
   );
 }
 
-export default HomeApp
+export default Home

@@ -38,7 +38,7 @@
 }
 
 .icon {
-  font-size: 1.4rem;
+  font-size: 1.9rem;
   margin-right: 1rem;
 }
 
@@ -51,6 +51,10 @@
 /* media queries (medium device) */
 
 @media screen and (max-width : 1024px ) {
+  .container {
+    width: 25%;
+  }
+  
   .logo-icon {
       display: none;
   }
@@ -60,7 +64,7 @@
 
 @media screen and (max-width : 600px ) {
   .container {
-      width: 7%;
+      width: 15%;
   }
 
   .item {
@@ -70,7 +74,7 @@
   }
 
   .icon, .logo-icon {
-      font-size: 2.5rem;
+      font-size: 1.5rem;
   }
 
   .logo-icon {

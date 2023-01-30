@@ -13,28 +13,28 @@ export const menuItems = [
     },
     {
         id: 2,
-        title: "Employees",
+        title: "Custo",
         name: "employees",
         icon: <FaUsers className='icon' />,
     },
     {
         id: 3,
-        title: "Customers",
+        title: "fluxo de caixa",
         name: "customers",
         icon: <HiOutlineUsers className='icon' />,
     },
-    {
-        id: 4,
-        title: "Kanban",
-        name: "kanban",
-        icon: <BsKanban className='icon' />,
-    },
-    {
-        id: 5,
-        title: "Orders",
-        name: "orders",
-        icon: <BsCartDash className='icon' />,
-    },
+    // {
+    //     id: 4,
+    //     title: "Kanban",
+    //     name: "kanban",
+    //     icon: <BsKanban className='icon' />,
+    // },
+    // {
+    //     id: 5,
+    //     title: "Orders",
+    //     name: "orders",
+    //     icon: <BsCartDash className='icon' />,
+    // },
     {
         id:6,
         title: "Charts",
