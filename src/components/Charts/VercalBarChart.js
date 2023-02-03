@@ -50,6 +50,9 @@ console.log(valorRateio)
 // console.log(totalInsumos)
 // const totalMaoObra = valorMaoObra.reduce((sum, valorMao) => sum + valorMao, 0)
 
+console.log(custoJson)
+
+
 
 export const options = {
   type: 'bar',
@@ -82,6 +85,7 @@ export const data = {
       data: valorFrota,
       backgroundColor: "#4682B4",
       // borderRadius: 25,
+      borderRadius: 25,
     },
     {
       label: "Insumos",

@@ -47,12 +47,12 @@ export const data = {
             fill: true,
             label: 'Customers',
             data: MyData.map(data => {return Number(data.custo)}) ,
-            // data: [1,2,3],
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
         },
     ],
 };
+
 
 const AreaChart = () => {
     // const dataTest = JSON.parse(MyData)
@@ -61,6 +61,7 @@ const AreaChart = () => {
         <div className='chart'>
             <h2>Area Chart</h2>
             <Line options={options} data={data} />
+
         </div>
     )
 }
