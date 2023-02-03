@@ -1,8 +1,5 @@
 import React from 'react';
-
-import MyData from "../../fluxoCaixaJson.json"
-
-
+import MyData from '../../custoJson.json'
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -39,8 +36,9 @@ export const options = {
 
     },
 };
-
-const labels = ['January', 'February', 'March', 'April', 'May', 'June', 'July'];
+// const cafe = MyData.map(data => {return String(data.local)})
+// const servicos = MyData.map(data => data.servicos.map(servicos => servicos.tipo))
+const labels = MyData.map(data => {return String(data.local)})
 
 export const data = {
     labels,
@@ -48,7 +46,7 @@ export const data = {
         {
             fill: true,
             label: 'Customers',
-            data: MyData.map(data => {return Number(data.pago)}) ,
+            data: MyData.map(data => {return Number(data.custo)}) ,
             // data: [1,2,3],
             borderColor: 'rgb(53, 162, 235)',
             backgroundColor: 'rgba(53, 162, 235, 0.5)',
@@ -58,7 +56,7 @@ export const data = {
 
 const AreaChart = () => {
     // const dataTest = JSON.parse(MyData)
-    console.log(MyData);
+    // console.log(MyData);
     return (
         <div className='chart'>
             <h2>Area Chart</h2>

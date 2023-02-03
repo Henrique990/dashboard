@@ -105,3 +105,8 @@
         width: 12rem;
     }
   }
+
+.doughnutChart {
+    display: flex;
+    justify-content: space-around;
+}

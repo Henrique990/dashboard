@@ -1,93 +1,109 @@
-import React from 'react';
+import React, { useState } from "react";
 import "./HomeApp.css";
-import { GiProgression, GiProfit } from "react-icons/gi";
-import { BsFillCartCheckFill} from "react-icons/bs"
-import { HiUsers } from "react-icons/hi";
-import { CircularProgressbar } from 'react-circular-progressbar';
-import 'react-circular-progressbar/dist/styles.css';
-import DoughnutChart from "../components/Charts/DoughnutChart"
+import { Box, Typography, CardContent, Select, Slider } from "@mui/material";
+import "react-circular-progressbar/dist/styles.css";
+import VerticalBarChart from "./Charts/VercalBarChart";
+import VerticalBarChart2 from "./Charts/VerticalBarChart2";
+
+import DoughnutChart from "./Charts/DoughnutChart";
+import DoughnutChart2 from "./Charts/DoughnutChart2";
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import TextField from '@mui/material/TextField';
+
+export function SliderSizes() {
+  return (
+    <Box width={300}>
+      {/* <Slider
+        size="small"
+        defaultValue={70}
+        aria-label="Small"
+        valueLabelDisplay="auto"
+      /> */}
+      <Slider defaultValue={50} aria-label="Default" valueLabelDisplay="auto" />
+    </Box>
+  );
+}
+
+export function BasicDatePicker() {
+  const [value, setValue] = React.useState(null);
+
+  return (
+    <LocalizationProvider dateAdapter={AdapterDayjs}>
+      <DatePicker
+        label="Data Inicio"
+        value={value}
+        onChange={(newValue) => {
+          setValue(newValue);
+        }}
+        renderInput={(params) => <TextField {...params} />}
+      />
+            <DatePicker
+        label="Data Fim"
+        value={value}
+        onChange={(newValue) => {
+          setValue(newValue);
+        }}
+        renderInput={(params) => <TextField {...params} />}
+      />
+
+    </LocalizationProvider>
+  );
+}
+
 
 const HomeApp = () => {
   return (
     <div>
-      <div className="home-container">
-
-        <div className="box">
-
-          <div className="box-icon">
-            <GiProgression />
-          </div>
-          <div className="box-data">
-            <span>Sales</span>
-            <h1>+28%</h1>
-          </div>
-
-        </div>
-
-        <div className="box">
-
-          <div className="box-icon">
-            <HiUsers />
-          </div>
-          <div className="box-data">
-            <span>New Customers</span>
-            <h1>+24</h1>
-          </div>
-
-        </div>
-        <div className="box">
-
-          <div className="box-icon">
-            <GiProfit />
-          </div>
-          <div className="box-data">
-            <span>Profit</span>
-            <h1>+56%</h1>
-          </div>
-
-        </div>
-        <div className="box">
-
-          <div className="box-icon">
-            <BsFillCartCheckFill />
-          </div>
-          <div className="box-data">
-            <span>New Orders</span>
-            <h1>+26</h1>
-          </div>
-
-        </div>
-      </div>
-
-      <div className="home-container-2">
-        <div className="card">
-          <div style={{ width: 250, height: 250 }}>
-            <CircularProgressbar value={66} circleRatio={0.75} maxValue={100} text={`75%`}
-              styles={{
-                trail: {
-                  transform: 'rotate(-135deg)',
-                  transformOrigin: 'center center',
-                  strokeWidth: 3,
-                },
-
-                path: {
-                  transform: 'rotate(-135deg)',
-                  transformOrigin: 'center center',
-                  stroke: "#34ccfc",
-                  strokeWidth: 4.5,
-                }
-              }}
-            />
-
-            <h1>Progress</h1>
-          </div>
-        </div>
-        <div className="card">
+      <CardContent sx={{marginLeft: '2rem'}}>
+      <CardContent sx={{display: 'flex', justifyContent: 'space-around'}}>
+      <Select
+        sx={{width: '15rem'}}
+      />
+      <BasicDatePicker />
+      <SliderSizes />
+      </CardContent>
+      <CardContent sx={{display: 'flex', justifyContent: 'space-around'}}>
+        <Box>
+          <Typography>Total Geral</Typography>
+          <Typography>R$ 1.542.420,16</Typography>
+        </Box>
+        <Box>
+          <Typography>Total Hectares</Typography>
+          <Typography>169,65</Typography>
+        </Box>
+        <Box>
+          <Typography>Custo HA</Typography>
+          <Typography>9.091,78</Typography>
+        </Box>
+        <Box>
+          <Typography>Produção por HA</Typography>
+          <Typography>23,90</Typography>
+        </Box>
+        <Box>
+          <Typography>Produção Total</Typography>
+          <Typography>4.054,70</Typography>
+        </Box>
+        <Box>
+          <Typography>Custo Produção</Typography>
+          <Typography>380,40</Typography>
+        </Box>
+      </CardContent>
+      <CardContent sx={{display: 'flex', justifyContent: 'space-around'}}>
+      <Box sx={{maxWidth: '15rem'}}>
           <DoughnutChart />
-        </div>
+        </Box>
+        <Box sx={{maxWidth: '15rem'}}>
+          <DoughnutChart2 />
+        </Box>
+      </CardContent>
+      <VerticalBarChart />
+      <VerticalBarChart2 />
+ 
+      </CardContent>
       </div>
-    </div>
-  )
-}
+  );
+};
 
-export default HomeApp
+export default HomeApp;

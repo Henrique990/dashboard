@@ -2,33 +2,24 @@ import React from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Pie } from 'react-chartjs-2';
 import custoJson from '../../custoJson.json'
+// import custo
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+// console.log(custoJson.map( data => data.servicos.map( data => data.))); 
 
-
-const fazenda34 = custoJson.filter( data => data.fazenda_id === 34)
-
-console.log(fazenda34)
-const custo34 = fazenda34.map( data => data.custo)
-console.log(custo34)
-const totalCusto34 = custo34.reduce((acc, val) => acc + val, 0);
-console.log(totalCusto34)
-
-const fazenda35 = custoJson.filter( data => data.fazenda_id === 35)
-const custo35 = fazenda35.map( data => data.custo)
-const totalCusto35 = custo35.reduce((acc, val) => acc + val, 0);
-console.log(totalCusto35)
-
+console.log(custoJson)
+// const chart = custoJson.map( data => data.)
 
 
 const config = {
     type: 'pie',
+    data: [],
     options: {
       responsive: true,
       plugins: {
         legend: {
-          position: 'top',
+          position: 'right',
         },
         title: {
           display: true,
@@ -37,18 +28,19 @@ const config = {
       }
     },
   };
-
-// const labels = ['Fazenda Alvorada', 'Fazenda da Conquista']
+const labels = ['Mão de Obra - R$ 1.543.420', 'Frota 759.760', 'Insumos 1.226.660', 'Rateio - R$ 20']
 
 export const data = {
-    labels:['Fazenda Alvorada', 'Fazenda da Conquista'],
+    labels,
     datasets: [
         {
             label: '',
-            data: [totalCusto34, totalCusto35 ],
+            data: [22,35,44,0],
             backgroundColor: [
-                'blue',
-                'green',
+                '#FF6347',
+                '#4682B4',
+                '#fc5c9c',
+                '#FFA500',
             ],
             borderColor: [
                 'rgba(255, 99, 132, 1)',
@@ -60,7 +52,7 @@ export const data = {
     ],
 };
 
-const DoughnutChart = () => {
+const DoughnutChart2 = () => {
     return (
             <Pie
                 options={config}
@@ -70,4 +62,4 @@ const DoughnutChart = () => {
     )
 }
 
-export default DoughnutChart
+export default DoughnutChart2
