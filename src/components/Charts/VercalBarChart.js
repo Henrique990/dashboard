@@ -12,6 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
+import { CardContent } from '@mui/material';
 
 ChartJS.register(
   CategoryScale,
@@ -31,26 +32,26 @@ const tipoMaoObra = servicos.map(data => data.filter(data => data.tipo === "maoO
 const tipoFrota = servicos.map(data => data.filter(data => data.tipo === "frota"))
 const tipoRateio = servicos.map(data => data.filter(data => data.tipo === "rateio"))
 
-console.log(tipoInsumos)
-console.log(tipoMaoObra)
-console.log(tipoFrota)
-console.log(tipoRateio)
+// console.log(tipoInsumos)
+// console.log(tipoMaoObra)
+// console.log(tipoFrota)
+// console.log(tipoRateio)
 
 const valorInsumos = tipoInsumos.map( data => data.reduce((acc, current ) => acc + current.valor, 0))
 const valorMaoObra = tipoMaoObra.map(data => data.reduce((acc, current) => acc + current.valor, 0))
 const valorFrota = tipoFrota.map(data => data.reduce((acc, current) => acc + current.valor, 0))
 const valorRateio = tipoRateio.map(data => data.reduce((acc, current) => acc + current.valor, 0))
 
-console.log(valorInsumos)
-console.log(valorMaoObra)
-console.log(valorFrota)
-console.log(valorRateio)
+// console.log(valorInsumos)
+// console.log(valorMaoObra)
+// console.log(valorFrota)
+// console.log(valorRateio)
 
 // const totalInsumos = valorInsumos.reduce((sum, valorInsumos) => sum + valorInsumos, 0)
 // console.log(totalInsumos)
 // const totalMaoObra = valorMaoObra.reduce((sum, valorMao) => sum + valorMao, 0)
 
-console.log(custoJson)
+// console.log(custoJson)
 
 
 
@@ -114,11 +115,11 @@ export const data = {
 
 const VerticalBarChart = () => {
   return (
-    
-    <div className="chart">
-      <h2>Vertical Bar Chart</h2>
-      <Bar options={options} data={data}/>
-    </div>
+    <>
+    <CardContent sx={{maxHeight: "600px"}}>
+      <Bar options={options} data={data} />
+    </CardContent>
+    </>
   )
 }
 

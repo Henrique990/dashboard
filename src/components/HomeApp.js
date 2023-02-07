@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./HomeApp.css";
-import { Box, Typography, CardContent, Select, Slider } from "@mui/material";
+import { Box, Typography, CardContent, Select, Slider, MenuItem } from "@mui/material";
 import "react-circular-progressbar/dist/styles.css";
 import VerticalBarChart from "./Charts/VercalBarChart";
 import VerticalBarChart2 from "./Charts/VerticalBarChart2";
@@ -11,6 +11,9 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import TextField from '@mui/material/TextField';
+
+import json from '../fluxoCaixaJson.json'
+import custoJson from '../custoJson.json'
 
 export function SliderSizes() {
   return (
@@ -25,57 +28,124 @@ export function SliderSizes() {
     </Box>
   );
 }
-
 export function BasicDatePicker() {
-  const [value, setValue] = React.useState(null);
+  const [startDate, setStartDate] = React.useState(null);
+  const [endDate, setEndDate] = React.useState(null);
+  const [filteredJson, setFilteredJson] = React.useState(null);
+
+  React.useEffect(() => {
+    // Filtra o JSON com base nas datas selecionadas
+    if (startDate && endDate) {
+      setFilteredJson(json.filter(item => item.competencia >= startDate && item.competencia <= endDate));
+    }
+  }, [startDate, endDate]);
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
       <DatePicker
-        label="Data Inicio"
-        value={value}
+        label="Data Início"
+        value={startDate}
         onChange={(newValue) => {
-          setValue(newValue);
+          setStartDate(newValue);
         }}
         renderInput={(params) => <TextField {...params} />}
       />
-            <DatePicker
+      <DatePicker
         label="Data Fim"
-        value={value}
+        value={endDate}
         onChange={(newValue) => {
-          setValue(newValue);
+          setEndDate(newValue);
         }}
         renderInput={(params) => <TextField {...params} />}
       />
-
     </LocalizationProvider>
   );
 }
 
 
+
 const HomeApp = () => {
+
+  // const [ selectedLocal, setSelecedLocal] = React.useState()
+  const [ selectedLocal, setSelectedLocal ] = useState('Cafe');
+    
+  const [ filteredData, seetFilteredData ] = useState(custoJson);
+
+  const handleFilter = (event) => {
+    setSelectedLocal(event.target.value)
+    seetFilteredData(custoJson.filter(data => data.local === event.target.value))
+  }
+
+  const totalG = custoJson.map(data => data.custo).reduce((total, data) => total + data, 0)
+  console.log(totalG)
+  const totalG_format = totalG.toLocaleString()
+  console.log(totalG_format)
+  const numberHectares = custoJson.map(data => Number(data.hectares))
+  console.log(numberHectares)
+  const totalH = numberHectares.map(data => Number(data)).reduce((total, data) => total + data, 0)
+  console.log(totalH)
+  const mediaPorHectare = totalG / totalH;
+  console.log(mediaPorHectare.toLocaleString())
+
+
+  // console.log(total.toLocaleString())
+
+  const [ totalGeral, setTotalGeral ] = useState(totalG.toLocaleString())
+  const [ selectedItem, setSelectedItem ] = useState("")
+  const [ totalHectares, setTotalHectares ] = useState (totalH)
+  const [ custoHA, setCustoHA ] = useState(mediaPorHectare.toLocaleString())
+
+
+  const handleItemSelect = (item) => {
+    if (item === "") {
+      setSelectedLocal("Café")
+    } else {
+      setSelectedLocal(item)
+      setTotalGeral(custoJson.find( i => i.local === item).custo)
+      setTotalHectares(custoJson.find( i => i.local === item).hectares)
+      setCustoHA(custoJson.find( i => i.local === item).custo / custoJson.find( i => i.local === item).hectares)
+      console.log("hello world")
+    }
+  }
+  
+
+
+
+// const totalGeral = custoJson.map(data => data.custo).reduce((acc, val) => acc + val, 0)
+// const totalHectares = numberHectares.reduce((acc, val) => acc + val, 0)
+
+
+
   return (
     <div>
       <CardContent sx={{marginLeft: '2rem'}}>
       <CardContent sx={{display: 'flex', justifyContent: 'space-around'}}>
       <Select
         sx={{width: '15rem'}}
-      />
+        value={selectedLocal}
+        onChange= {(e) => handleItemSelect(e.target.value)}
+        >
+          {custoJson.map( data => (
+            <MenuItem key={data.local} value={data.local}>
+              {data.local}
+            </MenuItem>
+          ))}
+      </Select>
       <BasicDatePicker />
       <SliderSizes />
       </CardContent>
       <CardContent sx={{display: 'flex', justifyContent: 'space-around'}}>
         <Box>
           <Typography>Total Geral</Typography>
-          <Typography>R$ 1.542.420,16</Typography>
+          <Typography>R$ {totalGeral.toLocaleString()}</Typography>
         </Box>
         <Box>
           <Typography>Total Hectares</Typography>
-          <Typography>169,65</Typography>
+          <Typography>{totalHectares}</Typography>
         </Box>
         <Box>
           <Typography>Custo HA</Typography>
-          <Typography>9.091,78</Typography>
+          <Typography>{custoHA.toLocaleString()}</Typography>
         </Box>
         <Box>
           <Typography>Produção por HA</Typography>
@@ -91,14 +161,16 @@ const HomeApp = () => {
         </Box>
       </CardContent>
       <CardContent sx={{display: 'flex', justifyContent: 'space-around'}}>
-      <Box sx={{maxWidth: '15rem'}}>
+      <Box sx={{maxHeight: '15rem'}}>
           <DoughnutChart />
         </Box>
-        <Box sx={{maxWidth: '15rem'}}>
+        <Box sx={{maxHeight: '15rem'}}>
           <DoughnutChart2 />
         </Box>
       </CardContent>
+      <Box sx={{Width: '15rem'}}>
       <VerticalBarChart />
+      </Box>
       <VerticalBarChart2 />
  
       </CardContent>

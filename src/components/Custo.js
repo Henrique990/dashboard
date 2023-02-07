@@ -31,7 +31,7 @@ import {
         stacked: true,
       },
       y: {
-        stacked: false,
+        stacked: true,
       },
     },
     plugins: {
@@ -45,31 +45,38 @@ import {
       },
   };
   
-
+  const pago = fluxoDeCaixa.map( data => data.pago)
+  console.log(pago);
+  const recebido = fluxoDeCaixa.map( data => data.recebido)
+  console.log(recebido);
+  const a_pagar = fluxoDeCaixa.map( data => data.a_pagar)
+  console.log(a_pagar);
+  const a_receber = fluxoDeCaixa.map( data => data.a_receber)
+  console.log(a_receber);
   
-  const labels = fluxoDeCaixa.map( data => {return data.competencia}) ;
+  const labels = fluxoDeCaixa.map( data => data.competencia) ;
   const data = {
     labels: labels,
     datasets: [
       {
         label: 'Pago',
-        data: fluxoDeCaixa.map( data => {return data.pago}), 
+        data: pago, 
         backgroundColor: 'pink',
       },
       {
         label: 'Recebido',
-        data: fluxoDeCaixa.map( data => {return data.recebido}),
+        data: recebido,
         backgroundColor: 'blue',
 
       },
       {
         label: 'A Pagar',
-        data: fluxoDeCaixa.map( data => {return data.a_pagar}),
+        data: a_pagar, 
         backgroundColor: 'red',
       },
       {
         label: 'A Receber',
-        data: fluxoDeCaixa.map( data => {return data.a_receber}),
+        data: a_receber,
         backgroundColor: 'orange',      
       }
     ]

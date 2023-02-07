@@ -1,5 +1,6 @@
 import React from 'react';
 import custoJson from '../../custoJson.json'
+import { CardContent } from '@mui/material';
 
 
 import {
@@ -75,10 +76,9 @@ export const data = {
 const VerticalBarChart2 = () => {
   return (
     
-    <div className="chart">
-      <h2>Vertical Bar Chart</h2>
+      <CardContent sx={{maxHeight: "600px"}}>
       <Bar options={options} data={data}/>
-    </div>
+      </CardContent>
   )
 }
 
