@@ -21,6 +21,7 @@ const config = {
     type: 'pie',
     options: {
       responsive: true,
+      events: ['click'],
       plugins: {
         legend: {
           position: 'top',
@@ -39,14 +40,13 @@ export const data = {
     labels:['Fazenda Alvorada', 'Fazenda da Conquista'],
     datasets: [
         {
-            label: '',
             data: [totalCusto34, totalCusto35 ],
             backgroundColor: [
                 'blue',
                 'green',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'black',
             ],
             borderWidth: 1,
             hoverOffset: 16,
@@ -82,10 +82,8 @@ export const DoughnutChart = () => {
     <Pie
       options={{
         ...config,
-        plugins: {
-          ...config.plugins,
           onClick: handleElementsClick,
-        },
+        
       }}
       data={filteredData}
 

@@ -84,10 +84,9 @@ import {
 
 const Custo = () => {
     return (
-        <div>
-            <h1>custo</h1>
+        <>
             <Bar options={options} data={data} />
-        </div>
+        </>
     )
 }
 

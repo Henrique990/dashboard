@@ -75,10 +75,7 @@ export const data = {
 
 const VerticalBarChart2 = () => {
   return (
-    
-      <CardContent sx={{maxHeight: "600px"}}>
       <Bar options={options} data={data}/>
-      </CardContent>
   )
 }
 

@@ -11,12 +11,12 @@ export const menuItems = [
         name: "",
         icon: <HiOutlineHome className='icon' />,
     },
-    {
-        id: 2,
-        title: "Custo",
-        name: "custo",
-        icon: <FaUsers className='icon' />,
-    },
+    // {
+    //     id: 2,
+    //     title: "Custo",
+    //     name: "custo",
+    //     icon: <FaUsers className='icon' />,
+    // },
     // {
     //     id: 3,
     //     title: "fluxo de caixa",
@@ -35,12 +35,12 @@ export const menuItems = [
     //     name: "orders",
     //     icon: <BsCartDash className='icon' />,
     // },
-    {
-        id:6,
-        title: "Charts",
-        name: "charts",
-        icon: <IoStatsChartSharp className='icon' />,
-    },
+    // {
+    //     id:6,
+    //     title: "Charts",
+    //     name: "charts",
+    //     icon: <IoStatsChartSharp className='icon' />,
+    // },
 ]
 
 export const customersColumns = [

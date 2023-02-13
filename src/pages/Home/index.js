@@ -1,8 +1,8 @@
 import './Home.css'
 import { Routes, Route } from "react-router-dom"
 import Sidebar from "../../components/Sidebar";
-import Custo from '../../components/Custo';
-import Charts from "../../components/Charts";
+// import Custo from '../../components/Custo';
+// import Charts from "../../components/Charts";
 import HomeApp from "../../components/HomeApp";
 
 function Home() {
@@ -23,8 +23,8 @@ function Home() {
           <Routes>
 
             <Route path='/' exact element={(<HomeApp />)} />
-            <Route path='/home/custo' element={(<Custo />)} />
-            <Route path='/home/charts'  element={(<Charts />)} />
+            {/* <Route path='/home/custo' element={(<Custo />)} /> */}
+            {/* <Route path='/home/charts'  element={(<Charts />)} /> */}
 
           </Routes>
 

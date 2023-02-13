@@ -18,6 +18,7 @@ const config = {
     data: [],
     options: {
       responsive: true,
+      events: ['click'],
       plugins: {
         legend: {
           position: 'right',
@@ -39,29 +40,29 @@ const tipoMaoObra = servicos.map(data => data.filter(data => data.tipo === "maoO
 const tipoFrota = servicos.map(data => data.filter(data => data.tipo === "frota"))
 const tipoRateio = servicos.map(data => data.filter(data => data.tipo === "rateio"))
 
-console.log(tipoInsumos)
-console.log(tipoMaoObra)
-console.log(tipoFrota)
-console.log(tipoRateio)
+// console.log(tipoInsumos)
+// console.log(tipoMaoObra)
+// console.log(tipoFrota)
+// console.log(tipoRateio)
 
 const valorInsumos = tipoInsumos.map( data => data.reduce((acc, current ) => acc + current.valor, 0))
 const valorMaoObra = tipoMaoObra.map(data => data.reduce((acc, current) => acc + current.valor, 0))
 const valorFrota = tipoFrota.map(data => data.reduce((acc, current) => acc + current.valor, 0))
 const valorRateio = tipoRateio.map(data => data.reduce((acc, current) => acc + current.valor, 0))
 
-console.log(valorInsumos)
-console.log(valorMaoObra)
-console.log(valorFrota)
-console.log(valorRateio)
+// console.log(valorInsumos)
+// console.log(valorMaoObra)
+// console.log(valorFrota)
+// console.log(valorRateio)
 
 const totalInsumos = valorInsumos.reduce((sum, valorInsumos) => sum + valorInsumos, 0)
 const totalMaoObra = valorMaoObra.reduce((sum, valorMao) => sum + valorMao, 0)
 const totalFrota = valorFrota.reduce((sum, valorFrota) => sum + valorFrota, 0)
 const totalRateio = valorRateio.reduce((sum, valorRateio) => sum + valorRateio, 0)
-console.log(totalInsumos)
-console.log(totalMaoObra)
-console.log(totalFrota)
-console.log(totalRateio)
+  // console.log(totalInsumos)
+  // console.log(totalMaoObra)
+  // console.log(totalFrota)
+  // console.log(totalRateio)
 
 const total = totalInsumos + totalMaoObra + totalFrota + totalRateio
 console.log(total)
@@ -80,7 +81,7 @@ const data = {
                 '#FFA500',
             ],
             borderColor: [
-                'rgba(255, 99, 132, 1)',
+                'black',
             ],
             borderWidth: 1,
             hoverOffset: 16,

@@ -9,8 +9,8 @@ const Signin = () => {
   const { signin } = useAuth();
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("test@example.com");
+  const [senha, setSenha] = useState("test123");
   const [error, setError] = useState("");
 
   const handleLogin = () => {
@@ -47,12 +47,12 @@ const Signin = () => {
         />
         <C.labelError>{error}</C.labelError>
         <Button Text="Entrar" onClick={handleLogin} />
-        <C.LabelSignup>
+        {/* <C.LabelSignup>
           Não tem uma conta?
           <C.Strong>
             <Link to="/signup">&nbsp;Registre-se</Link>
           </C.Strong>
-        </C.LabelSignup>
+        </C.LabelSignup> */}
       </C.Content>
     </C.Container>
   );

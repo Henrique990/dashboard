@@ -86,7 +86,6 @@ export const data = {
       data: valorFrota,
       backgroundColor: "#4682B4",
       // borderRadius: 25,
-      borderRadius: 25,
     },
     {
       label: "Insumos",
@@ -116,9 +115,7 @@ export const data = {
 const VerticalBarChart = () => {
   return (
     <>
-    <CardContent sx={{maxHeight: "600px"}}>
       <Bar options={options} data={data} />
-    </CardContent>
     </>
   )
 }
