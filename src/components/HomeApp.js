@@ -7,6 +7,8 @@ import {
   Select,
   Slider,
   MenuItem,
+  FormControl,
+  InputLabel,
 } from "@mui/material";
 import "react-circular-progressbar/dist/styles.css";
 import VerticalBarChart from "./Charts/VercalBarChart";
@@ -105,7 +107,7 @@ const HomeApp = () => {
   // console.log(total.toLocaleString())
 
   const [totalGeral, setTotalGeral] = useState(totalG.toLocaleString());
-  const [selectedItem, setSelectedItem] = useState("");
+  // const [selectedItem, setSelectedItem] = useState("");
   const [totalHectares, setTotalHectares] = useState(totalH);
   const [custoHA, setCustoHA] = useState(mediaPorHectare.toLocaleString());
 
@@ -131,9 +133,12 @@ const HomeApp = () => {
     <div>
       <CardContent sx={{ marginLeft: "2rem" }}>
         <CardContent sx={{ display: "flex", justifyContent: "space-around" }}>
+          <FormControl>
+          <InputLabel>Cafe</InputLabel>
           <Select
             sx={{ width: "15rem" }}
             value={selectedLocal}
+            label="Cafe"
             onChange={(e) => handleItemSelect(e.target.value)}
           >
             {custoJson.map((data) => (
@@ -142,6 +147,7 @@ const HomeApp = () => {
               </MenuItem>
             ))}
           </Select>
+          </FormControl>
           <BasicDatePicker />
           <SliderSizes />
         </CardContent>
@@ -171,21 +177,15 @@ const HomeApp = () => {
             <Typography>380,40</Typography>
           </Box>
         </CardContent>
-        <CardContent sx={{ display: "flex", justifyContent: "space-around" }}>
-          <Box sx={{ maxHeight: "15rem" }}>
-            <DoughnutChart />
-          </Box>
-          <Box sx={{ maxHeight: "15rem" }}>
+          {/* <Box sx={{ maxHeight: "15rem" }}>
             <DoughnutChart2 />
-          </Box>
+          </Box> */}
         </CardContent>
-        <Box >
-        </Box>
+        <DoughnutChart />
         <VerticalBarChart />
         
         <VerticalBarChart2 />
         <Custo />
-      </CardContent>
     </div>
   );
 };

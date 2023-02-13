@@ -63,10 +63,8 @@ const totalRateio = valorRateio.reduce((sum, valorRateio) => sum + valorRateio, 
   // console.log(totalMaoObra)
   // console.log(totalFrota)
   // console.log(totalRateio)
-
 const total = totalInsumos + totalMaoObra + totalFrota + totalRateio
 console.log(total)
-
 // console.log(custoJson)
 const data = {
     labels,

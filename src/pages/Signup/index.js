@@ -6,9 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 
 const Signup = () => {
-  const [email, setEmail] = useState("");
-  const [emailConf, setEmailConf] = useState("");
-  const [senha, setSenha] = useState("");
+  const [email, setEmail] = useState("test@example.com", true);
+  const [emailConf, setEmailConf] = useState("test@example.com", true);
+  const [senha, setSenha] = useState("test123", true);
   const [error, setError] = useState("");
   const navigate = useNavigate();
 

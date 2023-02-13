@@ -1,7 +1,7 @@
 import React from 'react';
 import { HiOutlineHome } from 'react-icons/hi';
-import { FaUsers } from 'react-icons/fa';
-import { IoStatsChartSharp } from 'react-icons/io5';
+// import { FaUsers } from 'react-icons/fa';
+// import { IoStatsChartSharp } from 'react-icons/io5';
 // import { BsKanban, BsCartDash} from 'react-icons/bs';
 
 export const menuItems = [
