@@ -2,6 +2,7 @@ import React from "react";
 import fluxoDeCaixa from "../fluxoCaixaJson.json";
 import { Bar } from "react-chartjs-2"
 
+
 import {
     Chart as ChartJS,
     CategoryScale,
@@ -21,7 +22,6 @@ import {
     Legend
   );
   
-
 
   export const options = {
     type: 'bar',

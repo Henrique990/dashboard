@@ -15,7 +15,7 @@ import VerticalBarChart from "./Charts/VercalBarChart";
 import VerticalBarChart2 from "./Charts/VerticalBarChart2";
 
 import DoughnutChart from "./Charts/DoughnutChart";
-import DoughnutChart2 from "./Charts/DoughnutChart2";
+// import DoughnutChart2 from "./Charts/DoughnutChart2";
 import { DatePicker } from "@mui/x-date-pickers/DatePicker";
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";

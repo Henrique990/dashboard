@@ -123,10 +123,12 @@ export const data2 = {
 export const DoughnutChart = () => {
   const [filteredData, setFilteredData] = React.useState(data);
 
-  const handleElementsClick = (elems) => {
-    console.log('handleElementsClick foi chamado!', elems);
+  const handleElementsClick = (evt, elems) => {
+    console.log('handleElementsClick foi chamado!',evt, elems);
+    if (elems && elems[0] && elems[0]._index) {
     const fazendaId = elems[0]._index;
     const fazendaData = fazendaId === 0 ? fazenda34 : fazenda35;
+    console.log('console de fazenda Data',fazendaData)
     setFilteredData({
       labels: [elems[0]._model.label],
       datasets: [
@@ -140,7 +142,10 @@ export const DoughnutChart = () => {
         },
       ],
     });
-  };
+  } else {
+    console.error("Nõa foi possível acessar a propriedade _index");
+  }
+};
 
 
   return (
@@ -149,8 +154,16 @@ export const DoughnutChart = () => {
     <Pie
       options={{
         ...config,
-          onClick: handleElementsClick,
-        
+          onClick: function(evt, elems) {
+            console.log(evt, elems);
+            if (elems.length > 0) {
+              const fazendaId = elems[0]._index;
+              console.log(fazendaId)
+              const fazendaData = fazendaId === 0 ? fazenda35 : fazenda34;
+              console.log('console de fazenda Data',fazendaData)
+                        
+          }
+          }
       }}
       data={filteredData}
 
