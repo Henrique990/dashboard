@@ -77,9 +77,9 @@ export const options = {
     },
 };
 
-const labels = custoJson.map(data => {return data.local});
 export const data = {
-  labels ,
+  labels: custoJson.map(data => {return data.local}),
+  // labels ,
   datasets: [
     {
       label: "Frota",

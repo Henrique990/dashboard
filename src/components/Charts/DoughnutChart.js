@@ -35,25 +35,24 @@ const config = {
 };
 const config2 = {
   type: "pie",
-  options: {
     responsive: true,
-    events: ["click"],
+    events: ["mousemove", "mouseout", "click", "touchstart", "touchmove"],
     plugins: {
       legend: {
-        position: "right",
+        position: "top",
       },
       title: {
         display: true,
         text: "Chart.js Pie Chart",
       },
     },
-  },
-};
+  }
+
 
 // const labels = ['Fazenda Alvorada', 'Fazenda da Conquista']
 
 export const data = {
-  labels: ["Fazenda Alvorada", "Fazenda da Conquista"],
+  labels: [`Fazenda Alvorada ${totalCusto34.toLocaleString()}`, `Fazenda da Conquista ${totalCusto35.toLocaleString()}`],
   datasets: [
     {
       label: "Fazendas",
@@ -208,8 +207,15 @@ const totalRateio35 = valorRateio35.reduce(
 // console.log(totalMaoObra)
 // console.log(totalFrota)
 // console.log(totalRateio)
+
+
 export const data2 = {
-  labels: ["Mão de Obra", "Frota", "Insumos", "Rateio"],
+  labels: [
+    `Mão de Obra R$ ${totalMaoObra.toLocaleString()}`,
+    `Frota R$ ${totalFrota.toLocaleString()}`,
+    `Insumos R$ ${totalInsumos.toLocaleString()}`,
+    `Rateio R$ ${totalRateio.toLocaleString()},000`,
+  ],
   datasets: [
     {
       data: [totalMaoObra, totalFrota, totalInsumos, totalRateio],
@@ -237,9 +243,14 @@ export const DoughnutChart = () => {
       console.log(selectedLabel);
 
       let newData2;
-      if (selectedLabel === "Fazenda Alvorada") {
+      if (dataPoint === 0) {
         newData2 = {
-          labels: ["Mão de Obra", "Frota", "Insumos", "Rateio"],
+          labels: [    
+          `Mão de Obra R$ ${totalMaoObra35.toLocaleString()}`,
+          `Frota R$ ${totalFrota35.toLocaleString()}`,
+          `Insumos R$ ${totalInsumos35.toLocaleString()}`,
+          `Rateio R$ ${totalRateio35.toLocaleString()}`,
+      ],
           datasets: [
             {
               data: [totalMaoObra35, totalFrota35, totalInsumos35, totalRateio35],
@@ -250,9 +261,14 @@ export const DoughnutChart = () => {
             },
           ],
         };
-      } else if(selectedLabel === 'Fazenda da Conquista') {
+      } else if(dataPoint === 1) {
         newData2 = {
-          labels: ["Mão de Obra", "Frota", "Insumos", "Rateio"],
+          labels: [    
+          `Mão de Obra R$ ${totalMaoObra34.toLocaleString()}`,
+          `Frota R$ ${totalFrota34.toLocaleString()}`,
+          `Insumos R$ ${totalInsumos34.toLocaleString()}`,
+          `Rateio R$ ${totalRateio34.toLocaleString()}`,
+      ],
           datasets: [
             {
               data: [totalMaoObra34, totalFrota34, totalInsumos34, totalRateio34],
