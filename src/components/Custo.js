@@ -1,6 +1,7 @@
 import React from "react";
 import fluxoDeCaixa from "../fluxoCaixaJson.json";
 import { Bar } from "react-chartjs-2"
+import { CardContent } from "@mui/material";
 
 
 import {
@@ -46,6 +47,7 @@ import {
   };
   
   const pago = fluxoDeCaixa.map( data => data.pago)
+  
   console.log(pago);
   const recebido = fluxoDeCaixa.map( data => data.recebido)
   console.log(recebido);
@@ -54,7 +56,7 @@ import {
   const a_receber = fluxoDeCaixa.map( data => data.a_receber)
   console.log(a_receber);
   
-  const labels = fluxoDeCaixa.map( data => data.competencia) ;
+  const labels = fluxoDeCaixa.map( data => data.competencia.substring(0, 10));
   const data = {
     labels: labels,
     datasets: [
@@ -84,9 +86,7 @@ import {
 
 const Custo = () => {
     return (
-        <>
-            <Bar options={options} data={data} />
-        </>
+        <Bar options={options} data={data} />
     )
 }
 

@@ -19,6 +19,8 @@ const custo35 = fazenda35.map((data) => data.custo);
 const totalCusto35 = custo35.reduce((acc, val) => acc + val, 0);
 console.log(totalCusto35);
 
+const text = 'Fazendas'
+
 const config = {
   type: "pie",
   responsive: true,
@@ -43,7 +45,7 @@ const config2 = {
       },
       title: {
         display: true,
-        text: "Chart.js Pie Chart",
+        text: text,
       },
     },
   }
@@ -65,8 +67,8 @@ export const data = {
   ],
 };
 const servicos = custoJson.map((data) => data.servicos);
-const servicos34 = fazenda34.map((data) => data.servicos);
-const servicos35 = fazenda35.map((data) => data.servicos);
+export const servicos34 = fazenda34.map((data) => data.servicos);
+export const servicos35 = fazenda35.map((data) => data.servicos);
 console.log(servicos34);
 
 const tipoInsumos = servicos.map((data) =>
@@ -228,7 +230,7 @@ export const data2 = {
 };
 
 export const DoughnutChart = () => {
-  let [dataValueForChart2, setDataValueForChart2] = useState(data2);
+  let [dataValueForChart2, setDataValueForChart2] = useState(data2,text);
 
   const chartRef = useRef();
   const onClick = (event) => {
