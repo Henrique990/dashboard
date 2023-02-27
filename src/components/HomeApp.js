@@ -27,8 +27,15 @@ import Custo from "./Custo";
 
 export function SliderSizes() {
   return (
-    <Box width={300}>
-      {/* <Slider
+    <Box
+    sx={{
+      width: "14em",
+      "@media screen and (max-width: 1370px)": {
+        width: "6em",
+      },
+    }}
+  >
+  {/* <Slider
         size="small"
         defaultValue={70}
         aria-label="Small"
@@ -56,22 +63,40 @@ export function BasicDatePicker() {
 
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker
-        label="Data Início"
-        value={startDate}
-        onChange={(newValue) => {
-          setStartDate(newValue);
+      <Box
+        sx={{
+          width: "14em",
+          "@media screen and (max-width: 1370px)": {
+            width: "6em",
+          },
         }}
-        renderInput={(params) => <TextField {...params} />}
-      />
-      <DatePicker
-        label="Data Fim"
-        value={endDate}
-        onChange={(newValue) => {
-          setEndDate(newValue);
+      >
+        <DatePicker
+          label="Data Início"
+          value={startDate}
+          onChange={(newValue) => {
+            setStartDate(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </Box>
+      <Box
+        sx={{
+          width: "14em",
+          "@media screen and (max-width: 1370px)": {
+            width: "6em",
+          },
         }}
-        renderInput={(params) => <TextField {...params} />}
-      />
+      >
+        <DatePicker
+          label="Data Fim"
+          value={endDate}
+          onChange={(newValue) => {
+            setEndDate(newValue);
+          }}
+          renderInput={(params) => <TextField {...params} />}
+        />
+      </Box>
     </LocalizationProvider>
   );
 }
@@ -134,22 +159,27 @@ const HomeApp = () => {
       <CardContent sx={{ marginLeft: "2rem" }}>
         <CardContent sx={{ display: "flex", justifyContent: "space-around" }}>
           <FormControl>
-          <InputLabel>Cafe</InputLabel>
-          <Select
-            sx={{ width: "15rem" }}
-            value={selectedLocal}
-            label="Cafe"
-            onChange={(e) => handleItemSelect(e.target.value)}
-          >
-            {custoJson.map((data) => (
-              <MenuItem key={data.local} value={data.local}>
-                {data.local}
-              </MenuItem>
-            ))}
-          </Select>
+            <InputLabel>Cafe</InputLabel>
+            <Select
+              sx={{
+                width: "12em",
+                "@media screen and (max-width: 1370px)": {
+                  width: "6em",
+                },
+              }}
+              value={selectedLocal}
+              label="Cafe"
+              onChange={(e) => handleItemSelect(e.target.value)}
+            >
+              {custoJson.map((data) => (
+                <MenuItem key={data.local} value={data.local}>
+                  {data.local}
+                </MenuItem>
+              ))}
+            </Select>
           </FormControl>
           <BasicDatePicker />
-          <SliderSizes />
+            <SliderSizes />
         </CardContent>
         <CardContent sx={{ display: "flex", justifyContent: "space-around" }}>
           <Box>
@@ -177,15 +207,15 @@ const HomeApp = () => {
             <Typography>380,40</Typography>
           </Box>
         </CardContent>
-          {/* <Box sx={{ maxHeight: "15rem" }}>
+        {/* <Box sx={{ maxHeight: "15rem" }}>
             <DoughnutChart2 />
           </Box> */}
-        </CardContent>
-        <DoughnutChart />
-        <VerticalBarChart />
-        
-        <VerticalBarChart2 />
-        <Custo />
+      </CardContent>
+      <DoughnutChart />
+      <VerticalBarChart />
+
+      <VerticalBarChart2 />
+      <Custo />
     </div>
   );
 };

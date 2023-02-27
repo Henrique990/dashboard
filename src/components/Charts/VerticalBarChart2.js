@@ -1,6 +1,5 @@
 import React from 'react';
 import custoJson from '../../custoJson.json'
-import { CardContent } from '@mui/material';
 
 
 import {

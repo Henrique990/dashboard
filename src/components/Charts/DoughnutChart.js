@@ -54,7 +54,7 @@ const config2 = {
 // const labels = ['Fazenda Alvorada', 'Fazenda da Conquista']
 
 export const data = {
-  labels: [`Fazenda Alvorada ${totalCusto34.toLocaleString()}`, `Fazenda da Conquista ${totalCusto35.toLocaleString()}`],
+  labels: [`Fazenda Alvorada R$ ${totalCusto34.toLocaleString()}`, `Fazenda da Conquista R$ ${totalCusto35.toLocaleString()}`],
   datasets: [
     {
       label: "Fazendas",

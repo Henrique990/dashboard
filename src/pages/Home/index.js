@@ -22,7 +22,7 @@ function Home() {
 
           <Routes>
 
-            <Route path='/' exact element={(<HomeApp />)} />
+            <Route path='/home' exact element={(<HomeApp />)} />
             {/* <Route path='/home/custo' element={(<Custo />)} /> */}
             {/* <Route path='/home/charts'  element={(<Charts />)} /> */}
 

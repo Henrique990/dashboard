@@ -2,8 +2,8 @@ import { Fragment } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import Home from "../pages/Home";
-import Signin from "../pages/Signin";
-import Signup from "../pages/Signup";
+import {Login} from "../pages/Signin";
+// import Signup from "../pages/Signup";
 
 // import Employees from "../components/Employees";
 // import Customers from "../components/Customers";
@@ -16,7 +16,7 @@ import Signup from "../pages/Signup";
 const Private = ({ Item }) => {
   const { signed } = useAuth();
 
-  return signed > 0 ? <Item /> : <Signin />;
+  return signed > 0 ? <Item /> : <Login />;
 };
 
 const RoutesApp = () => {
@@ -24,7 +24,7 @@ const RoutesApp = () => {
     <BrowserRouter>
       <Fragment>
         <Routes>
-          <Route exact path="/home" element={<Private Item={Home} />} />
+          <Route exact path="/" element={<Private Item={Home} />} />
 
           {/* <Route path='/home/homeapp' exact element={(<HomeApp />)} />
           <Route path='/employees' element={(<Employees />)} />
@@ -35,8 +35,8 @@ const RoutesApp = () => {
 
 
 
-          <Route path="/" element={<Signin />} />
-          <Route exact path="/signup" element={<Signup />} />
+          <Route path="/" element={<Login />} />
+          {/* <Route exact path="/signup" element={<Signup />} /> */}
           <Route path="*" element={<Home />} />
         </Routes>
       </Fragment>

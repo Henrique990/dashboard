@@ -1,7 +1,6 @@
 import React from "react";
 import fluxoDeCaixa from "../fluxoCaixaJson.json";
 import { Bar } from "react-chartjs-2"
-import { CardContent } from "@mui/material";
 
 
 import {

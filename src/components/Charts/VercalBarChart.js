@@ -12,7 +12,7 @@ import {
   Legend,
 } from 'chart.js';
 import { Bar } from 'react-chartjs-2';
-import { Button, CardContent } from '@mui/material';
+import { Button, Box } from '@mui/material';
 
 ChartJS.register(
   CategoryScale,
@@ -226,11 +226,11 @@ const VerticalBarChart = () => {
 
   return (
     <>
-    <CardContent >
       <Bar options={options} data={dataVerticalBarChart} />
-    </CardContent>
-      <Button onClick={fazendaDaConquista} sx={{backgroundColor: 'red'}}>Fazenda da Conquista</Button>
-      <Button onClick={fazendaAlvorada} sx={{backgroundColor: 'red'}}>Fazenda Alvorada</Button>
+      <Box sx={{display: 'flex', justifyContent: 'space-around'}}>
+      <Button onClick={fazendaDaConquista} sx={{backgroundColor: 'green', color: 'black'}}>Fazenda da Conquista</Button>
+      <Button onClick={fazendaAlvorada} sx={{backgroundColor: 'green', color: 'black'}}>Fazenda Alvorada</Button>
+      </Box>
     </>
   )
 }
