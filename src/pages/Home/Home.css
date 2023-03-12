@@ -8,6 +8,8 @@
 body {
   background-color: #f5f6fa;
   font-family: 'DM Sans', sans-serif;
+  width: 100vh;
+  height: 100vh;
 }
 
 .main {
@@ -34,9 +36,10 @@ body {
 
 /* media queries (small devices) */
 
-@media screen and (max-width : 600px ) {
+@media screen and (max-width : 800px ) {
   .main {
-    grid-template-columns: 5% 95%;
+    grid-template-columns: 0% 95%;
+    gap: 0rem;
   }
 }
 

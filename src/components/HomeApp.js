@@ -28,14 +28,14 @@ import Custo from "./Custo";
 export function SliderSizes() {
   return (
     <Box
-    sx={{
-      width: "14em",
-      "@media screen and (max-width: 1370px)": {
-        width: "6em",
-      },
-    }}
-  >
-  {/* <Slider
+      sx={{
+        width: "14em",
+        "@media screen and (max-width: 1370px)": {
+          width: "6em",
+        },
+      }}
+    >
+      {/* <Slider
         size="small"
         defaultValue={70}
         aria-label="Small"
@@ -66,7 +66,7 @@ export function BasicDatePicker() {
       <Box
         sx={{
           width: "14em",
-          "@media screen and (max-width: 1370px)": {
+          "@media screen and (max-width: 1170px)": {
             width: "6em",
           },
         }}
@@ -83,7 +83,7 @@ export function BasicDatePicker() {
       <Box
         sx={{
           width: "14em",
-          "@media screen and (max-width: 1370px)": {
+          "@media screen and (max-width: 1170px)": {
             width: "6em",
           },
         }}
@@ -151,6 +151,26 @@ const HomeApp = () => {
     }
   };
 
+  // Calcula o custo total de produção
+  const custoTotalProducao = custoJson.reduce(
+    (total, fazenda) =>
+      total +
+      fazenda.custo +
+      fazenda.servicos.reduce(
+        (servicosTotal, servico) =>
+          servicosTotal + servico.valor * servico.quantidade,
+        0
+      ),
+    0
+  );
+  console.log(custoTotalProducao.toLocaleString())
+
+  // Calcula o custo por hectare
+  const custoPorHectare = custoTotalProducao / totalHectares;
+  console.log(custoPorHectare.toLocaleString())
+
+
+
   // const totalGeral = custoJson.map(data => data.custo).reduce((acc, val) => acc + val, 0)
   // const totalHectares = numberHectares.reduce((acc, val) => acc + val, 0)
 
@@ -163,7 +183,7 @@ const HomeApp = () => {
             <Select
               sx={{
                 width: "12em",
-                "@media screen and (max-width: 1370px)": {
+                "@media screen and (max-width: 1170px)": {
                   width: "6em",
                 },
               }}
@@ -179,32 +199,104 @@ const HomeApp = () => {
             </Select>
           </FormControl>
           <BasicDatePicker />
-            <SliderSizes />
+          <SliderSizes />
         </CardContent>
         <CardContent sx={{ display: "flex", justifyContent: "space-around" }}>
           <Box>
-            <Typography>Total Geral</Typography>
-            <Typography>R$ {totalGeral.toLocaleString()}</Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em" },
+              }}
+            >
+              Total Geral
+            </Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em" },
+              }}
+            >
+              R$ {totalGeral.toLocaleString()}
+            </Typography>
           </Box>
           <Box>
-            <Typography>Total Hectares</Typography>
-            <Typography>{totalHectares}</Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em" },
+              }}
+            >
+              Total Hectares
+            </Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em" },
+              }}
+            >
+              {totalHectares}
+            </Typography>
           </Box>
           <Box>
-            <Typography>Custo HA</Typography>
-            <Typography>{custoHA.toLocaleString()}</Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em" },
+              }}
+            >
+              Custo HA
+            </Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em" },
+              }}
+            >
+              {custoHA.toLocaleString()}
+            </Typography>
           </Box>
           <Box>
-            <Typography>Produção por HA</Typography>
-            <Typography>23,90</Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
+              }}
+            >
+              Produção por HA
+            </Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
+              }}
+            >
+              23,90
+            </Typography>
           </Box>
           <Box>
-            <Typography>Produção Total</Typography>
-            <Typography>4.054,70</Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
+              }}
+            >
+              Produção Total
+            </Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
+              }}
+            >
+              4.054,70
+            </Typography>
           </Box>
           <Box>
-            <Typography>Custo Produção</Typography>
-            <Typography>380,40</Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
+              }}
+            >
+              Custo Produção
+            </Typography>
+            <Typography
+              sx={{
+                "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
+              }}
+            >
+              380,40
+            </Typography>
           </Box>
         </CardContent>
         {/* <Box sx={{ maxHeight: "15rem" }}>

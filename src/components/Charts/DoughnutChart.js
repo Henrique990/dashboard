@@ -41,6 +41,7 @@ const config2 = {
     events: ["mousemove", "mouseout", "click", "touchstart", "touchmove"],
     plugins: {
       legend: {
+        responsive: true,
         position: "top",
       },
       title: {
@@ -288,11 +289,11 @@ export const DoughnutChart = () => {
   };
 
   return (
-    <CardContent sx={{ display: "flex", justifyContent: "space-around" }}>
-      <Box sx={{ maxHeight: "20rem" }}>
+    <CardContent sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box sx={{ width: "20rem", '@media screen and (max-width: 500px)': {width:'12rem'} }}>
         <Pie options={config} data={data} onClick={onClick} ref={chartRef} />
       </Box>
-      <Box sx={{ maxHeight: "20rem" }}>
+      <Box sx={{ width: "20rem", '@media screen and (max-width: 500px)': {width:'12rem'} }}>
         <Pie options={config2} data={dataValueForChart2} />
       </Box>
     </CardContent>

@@ -79,6 +79,16 @@ import {
         label: 'A Receber',
         data: a_receber,
         backgroundColor: 'orange',      
+      },
+      {
+        label: 'Saldo Previsto',
+        data: a_receber,
+        backgroundColor: 'gray',      
+      },
+      {
+        label: 'Saldo Realizado',
+        data: a_receber,
+        backgroundColor: 'black',      
       }
     ]
   };

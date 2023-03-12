@@ -12,8 +12,8 @@ export function Login() {
 
   const navigation = useNavigate()
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("henriqueteixeira26@gmail.com");
+  const [password, setPassword] = useState("teste1234");
 
   const [signInWithEmailAndPassword, user, loading, error] =
     useSignInWithEmailAndPassword(auth);
