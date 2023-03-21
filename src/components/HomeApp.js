@@ -117,20 +117,35 @@ const HomeApp = () => {
   const totalG = custoJson
     .map((data) => data.custo)
     .reduce((total, data) => total + data, 0);
-  // console.log(totalG)
+  console.log('totalG = ' + totalG)
   // const totalG_format = totalG.toLocaleString()
   // console.log(totalG_format)
   const numberHectares = custoJson.map((data) => Number(data.hectares));
-  // console.log(numberHectares)
+  console.log('numberHectares = ' + numberHectares)
   const totalH = numberHectares
     .map((data) => Number(data))
     .reduce((total, data) => total + data, 0);
-  // console.log(totalH)
+  console.log('totalH = ' + totalH)
   const mediaPorHectare = totalG / totalH;
-  // console.log(mediaPorHectare.toLocaleString())
-
+  console.log('mediaPorHectares = ' + mediaPorHectare.toLocaleString())
   // console.log(total.toLocaleString())
 
+  const producao = custoJson.map( data => data.producao_efetiva || data.producao_prevista).map(Number)
+  console.log('produção = ' + producao)
+  const totalProducao = producao.reduce((total, data) => total + data, 0);
+  console.log('totalProdução = ' + totalProducao)
+  const mediaProducao = totalProducao / producao.length;
+  console.log('mediaProdução = ' + mediaProducao)
+  const hectares = custoJson.map(data => data.hectares).map(Number)
+  console.log('hectares = ' + hectares)
+  const hectaresTotal = hectares.reduce((total, data) => total + data, 0);
+  console.log('hectaresTotal = ' + hectaresTotal)
+  const producaoTotal = mediaProducao * hectaresTotal
+  console.log('Produção Total = ' + producaoTotal.toLocaleString())
+  const mediaCustoProducao = mediaPorHectare / mediaProducao
+  console.log('mediaCustoProducao = ' + mediaCustoProducao.toLocaleString())
+  
+    
   const [totalGeral, setTotalGeral] = useState(totalG.toLocaleString());
   // const [selectedItem, setSelectedItem] = useState("");
   const [totalHectares, setTotalHectares] = useState(totalH);
@@ -151,26 +166,6 @@ const HomeApp = () => {
     }
   };
 
-  // Calcula o custo total de produção
-  const custoTotalProducao = custoJson.reduce(
-    (total, fazenda) =>
-      total +
-      fazenda.custo +
-      fazenda.servicos.reduce(
-        (servicosTotal, servico) =>
-          servicosTotal + servico.valor * servico.quantidade,
-        0
-      ),
-    0
-  );
-  console.log(custoTotalProducao.toLocaleString())
-
-  // Calcula o custo por hectare
-  const custoPorHectare = custoTotalProducao / totalHectares;
-  console.log(custoPorHectare.toLocaleString())
-
-
-
   // const totalGeral = custoJson.map(data => data.custo).reduce((acc, val) => acc + val, 0)
   // const totalHectares = numberHectares.reduce((acc, val) => acc + val, 0)
 
@@ -179,7 +174,7 @@ const HomeApp = () => {
       <CardContent sx={{ marginLeft: "2rem" }}>
         <CardContent sx={{ display: "flex", justifyContent: "space-around" }}>
           <FormControl>
-            <InputLabel>Cafe</InputLabel>
+            <InputLabel>Safra</InputLabel>
             <Select
               sx={{
                 width: "12em",
@@ -263,7 +258,7 @@ const HomeApp = () => {
                 "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
               }}
             >
-              23,90
+              {mediaProducao}
             </Typography>
           </Box>
           <Box>
@@ -279,7 +274,7 @@ const HomeApp = () => {
                 "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
               }}
             >
-              4.054,70
+              {producaoTotal.toLocaleString()}
             </Typography>
           </Box>
           <Box>
@@ -295,7 +290,7 @@ const HomeApp = () => {
                 "@media screen and (max-width: 900px)": { fontSize: "0.7em", justifyContent: "space-between" },
               }}
             >
-              380,40
+              {mediaCustoProducao.toLocaleString()}
             </Typography>
           </Box>
         </CardContent>

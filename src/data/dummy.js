@@ -1,8 +1,9 @@
 import React from 'react';
 import { HiOutlineHome } from 'react-icons/hi';
-// import { FaUsers } from 'react-icons/fa';
+import { FaUsers } from 'react-icons/fa';
 // import { IoStatsChartSharp } from 'react-icons/io5';
 // import { BsKanban, BsCartDash} from 'react-icons/bs';
+import { HiOutlineUsers } from 'react-icons/hi'
 
 export const menuItems = [
     {
@@ -11,18 +12,18 @@ export const menuItems = [
         name: "",
         icon: <HiOutlineHome className='icon' />,
     },
-    // {
-    //     id: 2,
-    //     title: "Custo",
-    //     name: "custo",
-    //     icon: <FaUsers className='icon' />,
-    // },
-    // {
-    //     id: 3,
-    //     title: "fluxo de caixa",
-    //     name: "customers",
-    //     icon: <HiOutlineUsers className='icon' />,
-    // },
+    {
+        id: 2,
+        title: "Fazendas",
+        name: "custo",
+        icon: <FaUsers className='icon' />,
+    },
+    {
+        id: 3,
+        title: "fluxo de caixa",
+        name: "customers",
+        icon: <HiOutlineUsers className='icon' />,
+    },
     // {
     //     id: 4,
     //     title: "Kanban",
